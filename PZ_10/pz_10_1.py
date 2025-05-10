@@ -10,6 +10,6 @@ na_kazhdom = tsvedovod1 & tsvedovod2 & tsvedovod3 #возвращает элем
 na_odnom = tsvedovod1 | tsvedovod2 | tsvedovod3 #объединяет все три множества, создавая новое множество
 ni_na_odnom = vse_kultury - na_odnom #вычитание множеств
 
-print("Культуры, имеющиеся на каждом участке:", na_kazhdom)
-print("Культуры, имеющиеся хотя бы на одном участке:", na_odnom)
-print("Культуры, не имеющиеся ни на одном участке:", ni_na_odnom)
+print("Сорта роз, имеющиеся у каждого:", na_kazhdom)
+print("Сорта роз, имеющиеся хотя бы у одного:", na_odnom)
+print("Сорта роз, не имеющиеся ни у одного:", ni_na_odnom)
