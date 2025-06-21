@@ -12,7 +12,8 @@ info = [
     (6, 'обновление базы данных', '11.05.2025', '15.05.2025', 'Федоров'),
     (7, 'подготовка договора', '10.05.2025', '13.05.2025', 'Васильева'),
     (8, 'организовать мероприятие', '10.05.2025', '30.05.2025', 'Морозова'),
-    (9, 'провести совещание', '11.05.2025', '11.05.2025', 'Николаев')
+    (9, 'провести совещание', '11.05.2025', '11.05.2025', 'Николаев'),
+    (10, 'уволить работника', '10.05.2025', '11.05.2025', 'Плотницкий')
 ]
 
 with sq.connect('execution_control.db') as con:
@@ -42,6 +43,9 @@ cur.execute("SELECT * FROM instruction WHERE start_date = '10.05.2025'")
 for row in cur.fetchall():
     print(row)
 
+cur.execute("DELETE FROM instruction WHERE executor  = 'Федоров'")
+print("федоров удален")
+
 cur.execute("DELETE FROM instruction WHERE executor = 'Смирнов'")
 print("поручение с Смирнов - удалено")
 
@@ -50,6 +54,9 @@ print("поручение 'встреча' удалено")
 
 cur.execute("UPDATE instruction SET lead_time = '20.05.2025' WHERE id = 1")
 print("изменен срок исполнения c id=1")
+
+cur.execute("UPDATE instruction SET lead_time = '12.05.2025' WHERE id = 10")
+print("изменен срок исполнения c id=10")
 
 cur.execute("UPDATE instruction SET executor = 'Петров' WHERE executor = 'Морозова'")
 print("исполнителем стал Петров")
